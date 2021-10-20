@@ -19,6 +19,18 @@ const CustomSlider = ({ data }) => {
   //    renderItem: CarouselItem,
   //    hasParallaxImages: true,
   //  };
+
+   const renderPagination = () => (
+     // render carousel pagination
+     <Pagination
+       dotsLength={data.length}
+       activeDotIndex={index}
+       dotStyle={styles.dotStyle}
+       dotContainerStyle={styles.dotContainer}
+       inactiveDotOpacity={0.4}
+       inactiveDotScale={0.6}
+     />
+   );
   return (
     <View style={styles.container}>
       <Carousel
@@ -29,24 +41,11 @@ const CustomSlider = ({ data }) => {
         renderItem={CarouselItem}
         sliderWidth={SLIDER_WIDTH}
         itemWidth={ITEM_WIDTH}
-        inactiveSlideShift={0}
+        onSnapToItem={(index) => setIndex(index)}
         useScrollView={true}
+        
       />
-      <Pagination
-        dotsLength={data.length}
-        activeDotIndex={index}
-        carouselRef={isCarousel}
-        dotStyle={{
-          width: 10,
-          height: 10,
-          borderRadius: 5,
-          marginHorizontal: 0,
-          backgroundColor: 'rgba(0, 0, 0, 0.92)',
-        }}
-        inactiveDotOpacity={0.4}
-        inactiveDotScale={0.6}
-        tappableDots={true}
-      />
+      {/* {renderPagination()} */}
     </View>
   );
 };
