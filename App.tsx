@@ -7,11 +7,11 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import AppLoading from 'expo-app-loading';
 
-
 // Screens
 import Home from './screens/home';
 import About from './screens/about';
 import ReviewDetails from './screens/reviewDetails';
+import MainTab from './navigation/MainNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,17 +22,13 @@ export default function App() {
     'Nunito-Bold': require('./assets/fonts/Nunito-Bold.ttf'),
   });
 
-   if (!fontsLoaded) {
-     return <AppLoading />;
-   }
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
 
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="About" component={About} />
-        <Stack.Screen name="Reviews" component={ReviewDetails} />
-      </Stack.Navigator>
+     <MainTab />
       <StatusBar style="auto" />
     </NavigationContainer>
   );

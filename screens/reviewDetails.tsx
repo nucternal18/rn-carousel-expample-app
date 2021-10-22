@@ -1,22 +1,20 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native';
+import { globalStyles } from '../styles/global';
 
-const ReviewDetails = () => {
+const ReviewDetails = ({route}) => {
+    const item = route.params
+    console.log(item);
     return (
-      <View style={styles.container}>
-        <Text>Review Details</Text>
+      <View style={globalStyles.container}>
+        <Text style={globalStyles.titleText}>{item.title}</Text>
       </View>
     );
 }
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  
 });
 
 

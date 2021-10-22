@@ -1,10 +1,12 @@
-import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import React, {useState} from 'react'
+import { View, Text, StyleSheet, FlatList } from 'react-native'
 import CustomSlider from '../components/CustomSlider';
+import { globalStyles } from '../styles/global';
 
 const About = () => {
+    const [reviews, setReviews] = useState([])
     return (
-      <View style={styles.container}>
+      <View style={globalStyles.container}>
         <Text>About</Text>
       </View>
     );
@@ -12,12 +14,7 @@ const About = () => {
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+ 
 });
 
 
